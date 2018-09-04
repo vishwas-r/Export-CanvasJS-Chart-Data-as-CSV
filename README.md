@@ -17,7 +17,7 @@ CanvasJS is an HTML5 & JavaScript based Charting Library that runs on all modern
 
 #### How to Use?
 - Create and Render CanvasJS Chart
-- Call exportAsCSV method with chart and filename as parameter
+- Call CanvasJSAsCSV method with chart and filename as parameter
 ```
 var chart = new CanvasJS.Chart("chartContainer", {
     .
@@ -30,5 +30,5 @@ var chart = new CanvasJS.Chart("chartContainer", {
 });
 chart.render();
 
-exportAsCSV(chart, "filename");
+CanvasJSAsCSV(chart, "filename");
 ```

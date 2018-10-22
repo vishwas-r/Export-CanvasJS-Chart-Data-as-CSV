@@ -1,6 +1,12 @@
 <html>
 
 <head>
+<style>
+body {
+	width: 75%;
+	margin: auto;
+}
+</style>
 <script type="text/javascript">
 window.onload = function() {
 	var chart = new CanvasJS.Chart("chartContainer", {
@@ -72,7 +78,7 @@ chart.render();
 CanvasJSAsCSV(chart, "filename");
 </code></pre>
 	<h4>Live Example</h4>
-	<div id="chartContainer" style="height: 400px; width: 50%;"></div>
+	<div id="chartContainer" style="height: 400px; width: 60%;"></div>
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
 	<script src="dist/canvasjsascsv.min.js"> </script>
 </body>

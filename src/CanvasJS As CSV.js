@@ -36,7 +36,7 @@ function CanvasJSAsCSV(chart, fileName) {
 		});
 		exportButton.addEventListener("click", function() {
 			downloadCSV({
-				filename: "chart-data.csv",
+				filename: (fileName || "chart-data") + ".csv",
 				chart: chart
 			})
 		});

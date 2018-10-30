@@ -1,4 +1,4 @@
-function CanvasJSAsCSV(chart, fileName) {
+function CanvasJSDataAsCSV(chart, fileName) {
 	var toolBar = document.getElementsByClassName("canvasjs-chart-toolbar")[0];
 	if (chart.options.exportEnabled) {
 		var exportCSV = document.createElement('div');

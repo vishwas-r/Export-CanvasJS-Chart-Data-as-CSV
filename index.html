@@ -38,8 +38,8 @@ window.onload = function() {
 		}]
 	});
 	chart.render();
-	//CanvasJSAsCSV(chart, ["Filename"]); //Filename is optional - defaults to "chart-data"
-	CanvasJSAsCSV(chart, "Chart Data");
+	//CanvasJSDataAsCSV(chart, ["Filename"]); //Filename is optional - defaults to "chart-data"
+	CanvasJSDataAsCSV(chart, "Chart Data");
 }
 </script>
 </head>
@@ -62,7 +62,7 @@ window.onload = function() {
 	<h4 id="howtouse">How to Use?</h4>
 	<ul>
 		<li>Create and Render CanvasJS Chart</li>
-		<li>Call CanvasJSAsCSV method with chart and filename as parameter</li>
+		<li>Call CanvasJSDataAsCSV method with chart and filename as parameter</li>
 	</ul>
 	<pre><code>var chart = new CanvasJS.Chart("chartContainer", {
     .
@@ -75,7 +75,7 @@ window.onload = function() {
 });
 chart.render();
 
-CanvasJSAsCSV(chart, "filename");
+CanvasJSDataAsCSV(chart, "filename");
 </code></pre>
 	<h4>Live Example</h4>
 	<div id="chartContainer" style="height: 400px; width: 60%;"></div>

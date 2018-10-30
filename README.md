@@ -38,3 +38,8 @@ CanvasJSDataAsCSV(chart, "filename");
 
 #### When exportEnabled is set to false
 ![exportEnabled false](https://raw.githubusercontent.com/vishwas-r/Export-CanvasJS-Chart-Data-as-CSV/master/screenshots/Export%20Chart%20Data%20as%20CSV%20-%20Button.png)
+
+
+##### Note: 
+- Plugin was last tested with **CanvasJS v2.2GA**
+- This plugin requires you to have CanvasJS License. Please visit **[CanvasJS](https://canvasjs.com/license/)** for more info.

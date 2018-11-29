@@ -1,0 +1,46 @@
+<html>
+<head>
+<script type="text/javascript">
+window.onload = function() {
+	var chart = new CanvasJS.Chart("chartContainer", {
+		theme: "light2", // "light1", "dark1", "dark2"
+		animationEnabled: true,
+		exportEnabled: true,
+		title: {
+			text: "Basic Column Chart"
+		},
+		data: [{
+			// Change type to "bar", "area", "spline", "pie",etc.
+			type: "column",
+			dataPoints: [{
+				label: "apple",
+				y: 10
+			}, {
+				label: "orange",
+				y: 15
+			}, {
+				label: "banana",
+				y: 25
+			}, {
+				label: "mango",
+				y: 30
+			}, {
+				label: "grape",
+				y: 28
+			}]
+		}]
+	});
+	chart.render();
+	//CanvasJSDataAsCSV(chart, ["Filename"]); //Filename is optional - defaults to "chart-data"
+	CanvasJSDataAsCSV(chart, "Chart Data");
+}
+</script>
+</head>
+
+<body>	
+	<div id="chartContainer" style="height: 400px; width: 60%;margin: auto;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+	<script src="../dist/canvasjsascsv.min.js"> </script>
+</body>
+
+</html>

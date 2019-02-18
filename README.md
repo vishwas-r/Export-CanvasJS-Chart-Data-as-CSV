@@ -34,10 +34,13 @@ CanvasJSDataAsCSV(chart, "filename");
 ```
 
 #### When exportEnabled is set to true
-![exportEnabled true](https://raw.githubusercontent.com/vishwas-r/Export-CanvasJS-Chart-Data-as-CSV/master/screenshots/Export%20Chart%20Data%20as%20CSV%20-%20Dropdown.png)
+![exportEnabled true](https://raw.githubusercontent.com/vishwas-r/Export-CanvasJS-Chart-Data-as-CSV/master/screenshots/export-chart-as-csv-dropdown.png)
 
 #### When exportEnabled is set to false
-![exportEnabled false](https://raw.githubusercontent.com/vishwas-r/Export-CanvasJS-Chart-Data-as-CSV/master/screenshots/Export%20Chart%20Data%20as%20CSV%20-%20Button.png)
+![exportEnabled false](https://raw.githubusercontent.com/vishwas-r/Export-CanvasJS-Chart-Data-as-CSV/master/screenshots/export-chart-as-csv-export-false.png)
+
+#### When exportEnabled is set to false & zoomEnabled is set to true
+![exportEnabled false](https://raw.githubusercontent.com/vishwas-r/Export-CanvasJS-Chart-Data-as-CSV/master/screenshots/export-chart-as-csv-zooming.png)
 
 
 ##### Note: 

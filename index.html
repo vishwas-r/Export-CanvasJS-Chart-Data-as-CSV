@@ -9,13 +9,16 @@ body {
 </style>
 <script type="text/javascript">
 window.onload = function() {
-	var chart = new CanvasJS.Chart("chartContainer", {
+	var chart1 = new CanvasJS.Chart("chartContainer1", {
 		theme: "light2", // "light1", "dark1", "dark2"
 		animationEnabled: true,
 		exportEnabled: true,
 		title: {
-			text: "Basic Column Chart"
-		},
+			text: "Export Chart Data as CSV"
+		},		
+		subtitles: [{
+			text: "When exportEnabled is set to true"
+		}],
 		data: [{
 			// Change type to "bar", "area", "spline", "pie",etc.
 			type: "column",
@@ -37,9 +40,77 @@ window.onload = function() {
 			}]
 		}]
 	});
-	chart.render();
+	
+	var chart2 = new CanvasJS.Chart("chartContainer2", {
+		theme: "light2", // "light1", "dark1", "dark2"
+		animationEnabled: true,
+		title: {
+			text: "Export Chart Data as CSV"
+		},		
+		subtitles: [{
+			text: "When exportEnabled is set to false"
+		}],
+		data: [{
+			// Change type to "bar", "area", "spline", "pie",etc.
+			type: "column",
+			dataPoints: [{
+				label: "apple",
+				y: 10
+			}, {
+				label: "orange",
+				y: 15
+			}, {
+				label: "banana",
+				y: 25
+			}, {
+				label: "mango",
+				y: 30
+			}, {
+				label: "grape",
+				y: 28
+			}]
+		}]
+	});
+	
+	var chart3 = new CanvasJS.Chart("chartContainer3", {
+		theme: "light2", // "light1", "dark1", "dark2"
+		animationEnabled: true,
+		zoomEnabled: true,
+		title: {
+			text: "Export Chart Data as CSV"
+		},		
+		subtitles: [{
+			text: "When exportEnabled is set to false and zoomEnabled is set to true"
+		}],
+		data: [{
+			// Change type to "bar", "area", "spline", "pie",etc.
+			type: "column",
+			dataPoints: [{
+				label: "apple",
+				y: 10
+			}, {
+				label: "orange",
+				y: 15
+			}, {
+				label: "banana",
+				y: 25
+			}, {
+				label: "mango",
+				y: 30
+			}, {
+				label: "grape",
+				y: 28
+			}]
+		}]
+	});
+	
+	chart1.render();
+	chart2.render();
+	chart3.render();
 	//CanvasJSDataAsCSV(chart, ["Filename"]); //Filename is optional - defaults to "chart-data"
-	CanvasJSDataAsCSV(chart, "Chart Data");
+	CanvasJSDataAsCSV(chart1, "Chart Data");
+	CanvasJSDataAsCSV(chart2, "Chart Data");
+	CanvasJSDataAsCSV(chart3, "Chart Data");
 }
 </script>
 </head>
@@ -78,7 +149,14 @@ chart.render();
 CanvasJSDataAsCSV(chart, "filename");
 </code></pre>
 	<h4>Live Example</h4>
-	<div id="chartContainer" style="height: 400px; width: 60%;"></div>
+	<p>Example 1: When exportEnabled property is set to true</p>
+	<div id="chartContainer1" style="height: 360px; width: 60%; border: 1px solid black;"></div>
+	<br/>
+	<p>Example 2: When exportEnabled property is set to false</p>
+	<div id="chartContainer2" style="height: 360px; width: 60%; border: 1px solid black;"></div>
+	<br/>
+	<p>Example 3: When exportEnabled property is set to false and zoomEnabled is set to true</p>
+	<div id="chartContainer3" style="height: 360px; width: 60%; border: 1px solid black;"></div>
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
 	<script src="dist/canvasjsascsv.min.js"> </script>
 </body>

@@ -12,7 +12,7 @@ function CanvasJSDataAsCSV(chart, fileName) {
 			exportCSV.setAttribute("style", "padding: 12px 8px; background-color: white; color: black")
 		});
 		exportCSV.addEventListener("click", function() {
-			downloadCSV({
+			parseCSV({
 				filename: (fileName || "chart-data") + ".csv",
 				chart: chart
 			})
@@ -35,7 +35,7 @@ function CanvasJSDataAsCSV(chart, fileName) {
 			this.style.cssText = this.style.cssText + "background-color: #fff;";
 		});
 		exportButton.addEventListener("click", function() {
-			downloadCSV({
+			parseCSV({
 				filename: (fileName || "chart-data") + ".csv",
 				chart: chart
 			})
@@ -43,7 +43,7 @@ function CanvasJSDataAsCSV(chart, fileName) {
 
 		chart.container.parentNode.insertBefore(exportButton, chart.container.nextSibling);
 	}
-};
+}
 
 function convertChartDataToCSV(args) {
 	var result, ctr, keys, columnDelimiter, lineDelimiter, data;
@@ -69,8 +69,7 @@ function convertChartDataToCSV(args) {
 	return result;
 }
 
-function downloadCSV(args) {
-	var data, filename, link;
+function parseCSV(args) {
 	var csv = "";
 	for (var i = 0; i < args.chart.options.data.length; i++) {
 		csv += convertChartDataToCSV({
@@ -78,12 +77,16 @@ function downloadCSV(args) {
 		});
 	}
 	if (csv == null) return;
-	filename = args.filename || 'chart-data.csv';
+	var filename = args.filename || 'chart-data.csv';
 	if (!csv.match(/^data:text\/csv/i)) {
 		csv = 'data:text/csv;charset=utf-8,' + csv;
 	}
-	data = encodeURI(csv);
-	link = document.createElement('a');
+	downloadFile(csv, filename);
+}
+
+function downloadFile(extData, filename){
+	var data = encodeURI(extData);
+	var link = document.createElement('a');
 	link.setAttribute('href', data);
 	link.setAttribute('download', filename);
 	document.body.appendChild(link); // Required for FF

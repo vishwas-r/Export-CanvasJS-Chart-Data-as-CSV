@@ -21,9 +21,9 @@ function CanvasJSDataAsCSV(chart, fileName) {
 		toolBar.lastChild.appendChild(exportCSV);
 	} else {
 		var base64Img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEgSURBVEhL3dM/SgNBFMfxBS8gWkYb0dJSyBGCwdIzRPAKgrZKINdIkVJB0qqteIdYCYoHEPX74P1gMszuzG5SiD/4wM6/99jJpvq3GeIVPwUu0ToLpIrVad1EB3Pp3KRLA1PcRAdyCYtLURNtziUsHMqmeGOUxnNtPs2cZNp+mk2S0eIteu7O5y5wgFN8Yw8vePZnnZVktLiDJzxi1+cOfe4GHxhhgjHOoLOSTLgYbjZz7OPaxzOc4Nif4/3JaNHe4MHpDc7xiW284R1b2IS9ka61MWpg925NrPi9z9mfx65pgC+fO0Lfn21/Nqt8RUo8XordZ9cmSjyuTfHGKH+nQe6qptiA5QqpPcbWkin5PXJNaot3Tdhk7cUVKxwUr6pfwprgQh4A9MYAAAAASUVORK5CYII=";
-		var exportButton = document.createElement('button');
-		var chartBound = chart.container.getBoundingClientRect();
-		exportButton.style.cssText = "position:absolute;display: inline-block;padding: 0px 4px;height: 27px;cursor: pointer;text-align: center;text-decoration: none;background-color: #fff;border: 1px solid rgb(33, 150, 243);left:" + (chartBound.right - (chart.options.zoomEnabled ? 115 : 60)) + "px; top:" + (chartBound.top + 2) + "px";
+		var exportButton = document.createElement('button');		
+		
+		exportButton.style.cssText = "position:relative;display: inline-block;padding: 0px 4px;height: 27px;cursor: pointer;text-align: center;text-decoration: none;background-color: #fff;border: 1px solid rgb(33, 150, 243);left:" + (chart.container.clientWidth - (chart.options.zoomEnabled ? 115 : 60)) + "px; top: 1px";
 		
 		var img = document.createElement("IMG");
 		img.setAttribute("src", base64Img);
@@ -41,7 +41,7 @@ function CanvasJSDataAsCSV(chart, fileName) {
 			})
 		});
 
-		chart.container.parentNode.insertBefore(exportButton, chart.container.nextSibling);
+		chart.container.appendChild(exportButton);
 	}
 }
 

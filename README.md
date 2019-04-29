@@ -3,16 +3,7 @@
 This is a plugin for CanvasJS Charts that allows you to export and save CanvasJS Chart's data as CSV.
 
 ## CanvasJS
-CanvasJS is an HTML5 & JavaScript based Charting Library that runs on all modern devices including iPhone, Android, Desktops, etc. Charts are beautiful and API is very simple to use.
-
-### CanvasJS Features:
-- Simple API and easy to use
-- Supports 30+ different types of Charts / Graphs
-- 10x faster than conventional Flash / SVG based Charting Libraries
-- Comes with Several beautiful looking themes
-- Well Maintained and Updated Documentation
-- Works across browsers (Chrome, Firefox, Safari, IE8+)
-- Can be integrated with Serverside and Frontend technologies like ASP.Net, PHP, Spring MVC, JSP, jQuery, Angular, React, etc.
+CanvasJS is built from ground up for high performance data visualization and can render millions of data points in a matter of milliseconds. CanvasJS is trusted by 500K+ users in 192 Countries. Customers include Microsoft, NASA, Apple, Intel, Boing, Samsung, BMW, Sony, HP etc
 
 
 ### How to Use?

@@ -9,6 +9,7 @@ CanvasJS is built from ground up for high performance data visualization and can
 ### How to Use?
 - Create and Render CanvasJS Chart
 - Call CanvasJSDataAsCSV method with chart and filename as parameter
+
 ```
 var chart = new CanvasJS.Chart("chartContainer", {
     .
@@ -22,6 +23,8 @@ var chart = new CanvasJS.Chart("chartContainer", {
 chart.render();
 
 CanvasJSDataAsCSV(chart, "filename");
+//or
+chart.exportAsCSV("filename");
 ```
 
 #### When exportEnabled is set to true

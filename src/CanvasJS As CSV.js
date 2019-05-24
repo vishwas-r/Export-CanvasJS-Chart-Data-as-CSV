@@ -1,7 +1,7 @@
-(function () {    
+(function () {
     var CanvasJS = window.CanvasJS || CanvasJS ? window.CanvasJS : null;
     if (CanvasJS) {
-        CanvasJS.Chart.prototype.exportAsCSV = function (fileName) {            
+        CanvasJS.Chart.prototype.exportAsCSV = function (fileName) {
             CanvasJSDataAsCSV(this, fileName);
         }
     }
@@ -11,13 +11,13 @@
             var exportCSV = document.createElement('div');
             var text = document.createTextNode("Save as CSV");
             console.log(chart)
-            exportCSV.setAttribute("style", "padding: 12px 8px; background-color: white; color: black")
+            exportCSV.setAttribute("style", "padding: 12px 8px; background-color: " + chart.toolbar.backgroundColor + "; color: " + chart.toolbar.fontColor);
             exportCSV.appendChild(text);
             exportCSV.addEventListener("mouseover", function () {
-                exportCSV.setAttribute("style", "padding: 12px 8px; background-color: #2196F3; color: white")
+                exportCSV.setAttribute("style", "padding: 12px 8px; background-color: " + chart.toolbar.backgroundColorOnHover + "; color: " + chart.toolbar.fontColorOnHover);
             });
             exportCSV.addEventListener("mouseout", function () {
-                exportCSV.setAttribute("style", "padding: 12px 8px; background-color: white; color: black")
+                exportCSV.setAttribute("style", "padding: 12px 8px; background-color: " + chart.toolbar.backgroundColor + "; color: " + chart.toolbar.fontColor);
             });
             exportCSV.addEventListener("click", function () {
                 parseCSV({
@@ -31,16 +31,16 @@
             var base64Img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEgSURBVEhL3dM/SgNBFMfxBS8gWkYb0dJSyBGCwdIzRPAKgrZKINdIkVJB0qqteIdYCYoHEPX74P1gMszuzG5SiD/4wM6/99jJpvq3GeIVPwUu0ToLpIrVad1EB3Pp3KRLA1PcRAdyCYtLURNtziUsHMqmeGOUxnNtPs2cZNp+mk2S0eIteu7O5y5wgFN8Yw8vePZnnZVktLiDJzxi1+cOfe4GHxhhgjHOoLOSTLgYbjZz7OPaxzOc4Nif4/3JaNHe4MHpDc7xiW284R1b2IS9ka61MWpg925NrPi9z9mfx65pgC+fO0Lfn21/Nqt8RUo8XordZ9cmSjyuTfHGKH+nQe6qptiA5QqpPcbWkin5PXJNaot3Tdhk7cUVKxwUr6pfwprgQh4A9MYAAAAASUVORK5CYII=";
             var exportButton = document.createElement('button');
 
-            exportButton.style.cssText = "position:relative;display: inline-block;padding: 0px 4px;height: 27px;cursor: pointer;text-align: center;text-decoration: none;background-color: #fff;border: 1px solid rgb(33, 150, 243);left:" + (chart.container.clientWidth - (chart.options.zoomEnabled ? 115 : 60)) + "px; top: 1px";
+            exportButton.style.cssText = "position:relative;display: inline-block;padding: 0px 4px;height: 27px;cursor: pointer;text-align: center;text-decoration: none;background-color:" + chart.toolbar.backgroundColor + ";border: 1px solid " + chart.toolbar.borderColor + ";left:" + (chart.container.clientWidth - (chart.options.zoomEnabled ? 115 : 60)) + "px; top: 1px";
 
             var img = document.createElement("IMG");
             img.setAttribute("src", base64Img);
             exportButton.appendChild(img);
             exportButton.addEventListener("mouseover", function () {
-                this.style.cssText = this.style.cssText + "background-color: rgb(33, 150, 243)";
+                this.style.cssText = this.style.cssText + "background-color: " + chart.toolbar.backgroundColorOnHover;
             });
             exportButton.addEventListener("mouseout", function () {
-                this.style.cssText = this.style.cssText + "background-color: #fff;";
+                this.style.cssText = this.style.cssText + "background-color: " + chart.toolbar.backgroundColor;
             });
             exportButton.addEventListener("click", function () {
                 parseCSV({

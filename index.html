@@ -107,10 +107,11 @@ window.onload = function() {
 	chart1.render();
 	chart2.render();
 	chart3.render();
-	//CanvasJSDataAsCSV(chart, ["Filename"]); //Filename is optional - defaults to "chart-data"
-	CanvasJSDataAsCSV(chart1, "Chart Data");
-	CanvasJSDataAsCSV(chart2, "Chart Data");
-	CanvasJSDataAsCSV(chart3, "Chart Data");
+	//CanvasJSDataAsCSV(chart [,"Filename"]); //Filename is optional - defaults to "chart-data"
+	//chart.exportAsCSV(["Filename"]);
+	CanvasJSDataAsCSV(chart1, "Chart1 Data"); //chart1.exportAsCSV("Chart1 Data");
+	CanvasJSDataAsCSV(chart2, "Chart2 Data"); //chart2.exportAsCSV("Chart2 Data");
+	CanvasJSDataAsCSV(chart3, "Chart3 Data"); //chart3.exportAsCSV("Chart3 Data");
 }
 </script>
 </head>
@@ -146,7 +147,8 @@ window.onload = function() {
 });
 chart.render();
 
-CanvasJSDataAsCSV(chart, "filename");
+CanvasJSDataAsCSV(chart[, "filename"]);
+//or chart.exportAsCSV(["filename"]);
 </code></pre>
 	<h4>Live Example</h4>
 	<p>Example 1: When exportEnabled property is set to true</p>

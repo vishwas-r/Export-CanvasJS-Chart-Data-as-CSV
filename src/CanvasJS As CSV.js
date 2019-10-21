@@ -9,8 +9,7 @@
     function CanvasJSDataAsCSV(chart, fileName) {
         if (chart.exportEnabled) {
             var exportCSV = document.createElement('div');
-            var text = document.createTextNode("Save as CSV");
-            console.log(chart)
+            var text = document.createTextNode("Save as CSV");            
             exportCSV.setAttribute("style", "padding: 12px 8px; background-color: " + chart.toolbar.backgroundColor + "; color: " + chart.toolbar.fontColor);
             exportCSV.appendChild(text);
             exportCSV.addEventListener("mouseover", function () {

@@ -2,42 +2,77 @@
 <head>
 <script type="text/javascript">
 window.onload = function() {
-	var chart = new CanvasJS.Chart("chartContainer", {
-		theme: "light2", // "light1", "dark1", "dark2"
-		animationEnabled: true,
-		title: {
-			text: "Basic Column Chart"
-		},
-		data: [{
-			// Change type to "bar", "area", "spline", "pie",etc.
-			type: "column",
-			dataPoints: [{
-				label: "apple",
-				y: 10
-			}, {
-				label: "orange",
-				y: 15
-			}, {
-				label: "banana",
-				y: 25
-			}, {
-				label: "mango",
-				y: 30
-			}, {
-				label: "grape",
-				y: 28
-			}]
-		}]
-	});
-	chart.render();
-	//CanvasJSDataAsCSV(chart, ["Filename"]); //Filename is optional - defaults to "chart-data"
-	CanvasJSDataAsCSV(chart, "Chart Data");
+  var chart = new CanvasJS.Chart("chartContainer", {
+    theme: "light2", // "light1", "dark1", "dark2"
+    animationEnabled: true,
+    zoomEnabled: true,
+    exportEnabled: true,
+    title: {
+      text: "Exporting Multi-Series Chart as CSV"
+    },
+    data: [{        
+      type: "line",
+      dataPoints: [
+        { x: 10, y: 21 },
+        { x: 20, y: 25 },
+        { x: 30, y: 20 },
+        { x: 40, y: 25 },
+        { x: 50, y: 27 },
+        { x: 60, y: 28 },
+        { x: 70, y: 28 },
+        { x: 80, y: 24 },
+        { x: 90, y: 26 }      
+      ]
+    }, {        
+      type: "line",
+      dataPoints: [
+        { x: 10, y: 31 },
+        { x: 20, y: 35 },
+        { x: 30, y: 30 },
+        { x: 40, y: 35 },
+        { x: 50, y: 35 },
+        { x: 60, y: 38 },
+        { x: 70, y: 38 },
+        { x: 80, y: 34 },
+        { x: 90, y: 44 }      
+      ]
+    }, {        
+      type: "line",
+      dataPoints: [
+        { x: 10, y: 45 },
+        { x: 20, y: 50 },
+        { x: 30, y: 40 },
+        { x: 40, y: 45 },
+        { x: 50, y: 45 },
+        { x: 60, y: 48 },
+        { x: 70, y: 43 },
+        { x: 80, y: 41 },
+        { x: 90, y: 28 }      
+      ]
+    }, {        
+      type: "line",
+      dataPoints: [
+        { x: 10, y: 71 },
+        { x: 20, y: 55 },
+        { x: 30, y: 50 },
+        { x: 40, y: 65 },
+        { x: 50, y: 95 },
+        { x: 60, y: 68 },
+        { x: 70, y: 28 },
+        { x: 80, y: 34 },
+        { x: 90, y: 14 }      
+      ]
+    }]
+  });
+  chart.render();
+  //CanvasJSDataAsCSV(chart, ["Filename"]); //Filename is optional - defaults to "chart-data"
+  CanvasJSDataAsCSV(chart, "Chart Data");
 }
 </script>
 </head>
 
 <body>	
-	<div id="chartContainer" style="height: 400px; width: 60%;margin: auto;"></div>
+	<div id="chartContainer" style="height: 360px; width: 60%;margin: auto;"></div>
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
 	<script src="../dist/canvasjsascsv.min.js"> </script>
 </body>

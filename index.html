@@ -44,6 +44,68 @@ window.onload = function() {
 	var chart2 = new CanvasJS.Chart("chartContainer2", {
 		theme: "light2", // "light1", "dark1", "dark2"
 		animationEnabled: true,
+		exportEnabled: true,
+		title: {
+			text: "Exporting Multi-Series Chart Data as CSV"
+		},
+		data: [{        
+		  type: "line",
+		  dataPoints: [
+			{ x: 10, y: 21 },
+			{ x: 20, y: 25 },
+			{ x: 30, y: 20 },
+			{ x: 40, y: 25 },
+			{ x: 50, y: 27 },
+			{ x: 60, y: 28 },
+			{ x: 70, y: 28 },
+			{ x: 80, y: 24 },
+			{ x: 90, y: 26 }      
+		  ]
+		}, {        
+		  type: "line",
+		  dataPoints: [
+			{ x: 10, y: 31 },
+			{ x: 20, y: 35 },
+			{ x: 30, y: 30 },
+			{ x: 40, y: 35 },
+			{ x: 50, y: 35 },
+			{ x: 60, y: 38 },
+			{ x: 70, y: 38 },
+			{ x: 80, y: 34 },
+			{ x: 90, y: 44 }      
+		  ]
+		}, {        
+		  type: "line",
+		  dataPoints: [
+			{ x: 10, y: 45 },
+			{ x: 20, y: 50 },
+			{ x: 30, y: 40 },
+			{ x: 40, y: 45 },
+			{ x: 50, y: 45 },
+			{ x: 60, y: 48 },
+			{ x: 70, y: 43 },
+			{ x: 80, y: 41 },
+			{ x: 90, y: 28 }      
+		  ]
+		}, {        
+		  type: "line",
+		  dataPoints: [
+			{ x: 10, y: 71 },
+			{ x: 20, y: 55 },
+			{ x: 30, y: 50 },
+			{ x: 40, y: 65 },
+			{ x: 50, y: 95 },
+			{ x: 60, y: 68 },
+			{ x: 70, y: 28 },
+			{ x: 80, y: 34 },
+			{ x: 90, y: 14 }      
+		  ]
+		}]
+	});
+	
+	var chart3 = new CanvasJS.Chart("chartContainer3", {
+		theme: "light2", // "light1", "dark1", "dark2"
+		animationEnabled: true,
 		title: {
 			text: "Export Chart Data as CSV"
 		},		
@@ -72,7 +134,7 @@ window.onload = function() {
 		}]
 	});
 	
-	var chart3 = new CanvasJS.Chart("chartContainer3", {
+	var chart4 = new CanvasJS.Chart("chartContainer4", {
 		theme: "light2", // "light1", "dark1", "dark2"
 		animationEnabled: true,
 		zoomEnabled: true,
@@ -107,18 +169,20 @@ window.onload = function() {
 	chart1.render();
 	chart2.render();
 	chart3.render();
+	chart4.render();
 	//CanvasJSDataAsCSV(chart [,"Filename"]); //Filename is optional - defaults to "chart-data"
 	//chart.exportAsCSV(["Filename"]);
 	CanvasJSDataAsCSV(chart1, "Chart1 Data"); //chart1.exportAsCSV("Chart1 Data");
 	CanvasJSDataAsCSV(chart2, "Chart2 Data"); //chart2.exportAsCSV("Chart2 Data");
 	CanvasJSDataAsCSV(chart3, "Chart3 Data"); //chart3.exportAsCSV("Chart3 Data");
+	CanvasJSDataAsCSV(chart4, "Chart3 Data"); //chart3.exportAsCSV("Chart3 Data");
 }
 </script>
 </head>
 
 <body>
 	<h1 id="exportcanvasjschartdataascsv">Export CanvasJS Chart Data as CSV</h1>
-	<p>This plugin allows you to export and save CanvasJS Chart's data as CSV.</p>
+	<p>This plugin allows you to export and save CanvasJS Chart's data as CSV. Check out <a href="https://github.com/vishwas-r/Export-CanvasJS-Chart-Data-as-CSV">Github Repository</a> for more info / examples.</p>
 	<h2 id="canvasjs">CanvasJS</h2>
 	<p>CanvasJS is an HTML5 &amp; JavaScript based Charting Library that runs on all modern devices including iPhone, Android, Desktops, etc. Charts are beautiful and API is very simple to use.</p>
 	<h4 id="canvasjsfeatures">CanvasJS Features:</h4>
@@ -154,11 +218,14 @@ CanvasJSDataAsCSV(chart[, "filename"]);
 	<p>Example 1: When exportEnabled property is set to true</p>
 	<div id="chartContainer1" style="height: 360px; width: 60%; border: 1px solid black;"></div>
 	<br/>
-	<p>Example 2: When exportEnabled property is set to false</p>
+	<p>Example 2: Exporting Multi-Series Chart as CSV</p>
 	<div id="chartContainer2" style="height: 360px; width: 60%; border: 1px solid black;"></div>
 	<br/>
-	<p>Example 3: When exportEnabled property is set to false and zoomEnabled is set to true</p>
+	<p>Example 3: When exportEnabled property is set to false</p>
 	<div id="chartContainer3" style="height: 360px; width: 60%; border: 1px solid black;"></div>
+	<br/>
+	<p>Example 2: When exportEnabled property is set to false and zoomEnabled is set to true</p>
+	<div id="chartContainer4" style="height: 360px; width: 60%; border: 1px solid black;"></div>
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
 	<script src="dist/canvasjsascsv.min.js"> </script>
 </body>

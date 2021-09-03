@@ -57,7 +57,7 @@ function mergeData(data) {
 		result = [];
 	for (var i = 0; i < data.length; i++) {
 		for (var j = 0; j < data[i].dataPoints.length; j++) {
-			mergedDps.push(data[i].dataPoints[j]);
+			mergedDps.push(cloneObject(data[i].dataPoints[j]));
 		}
 	}
 
@@ -149,5 +149,32 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 	} else {
 		window.CanvasJSDataAsCSV = CanvasJSDataAsCSV;
 	}
+}
+function cloneObject(obj) {
+	if (obj === null || typeof obj !== "object") {
+		return obj;
+	}
+	if (obj instanceof Date) {
+		return new Date(obj.getTime());
+	}
+	if (!Array.isArray) {
+		Array.isArray = function (arg) {
+			return Object.prototype.toString.call(arg) === '[object Array]';
+		};
+	}
+	if (Array.isArray(obj)) {
+		var clonedArr = [];
+		for (var i = 0; i < obj.length; i++) {
+			clonedArr.push(cloneObject(obj[i]))
+		}
+		return clonedArr;
+	}
+	var clonedObj = new obj.constructor();
+	for (var prop in obj) {
+		if (obj.hasOwnProperty(prop)) {
+			clonedObj[prop] = cloneObject(obj[prop]);
+		}
+	}
+	return clonedObj;
 }
 })();

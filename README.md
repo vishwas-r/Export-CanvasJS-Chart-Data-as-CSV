@@ -38,5 +38,5 @@ chart.exportAsCSV("filename");
 
 
 ##### Note: 
-- Plugin was last tested with **CanvasJS Chart v3.4 Beta 1**
+- Plugin was last tested with **CanvasJS Chart v3.4.4GA**
 - This plugin requires you to have CanvasJS License. Please visit **[CanvasJS](https://canvasjs.com/license/)** for more info.

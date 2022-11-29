@@ -40,4 +40,4 @@ chart.exportAsCSV("filename");
 - Plugin was last tested with **CanvasJS Chart v3.7.2GA**
 - This plugin requires you to have CanvasJS License. Please visit **[CanvasJS](https://canvasjs.com/license/)** for more info.
 
-<a href="https://ko-fi.com/vishwas" target="_blank"> <img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="Ko-Fi" /></a>
+<a href="https://www.buymeacoffee.com/vishwas" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="BuyMeACoffee" width="200"/></a>

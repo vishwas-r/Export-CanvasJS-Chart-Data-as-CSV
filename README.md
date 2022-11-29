@@ -1,5 +1,4 @@
 # Export CanvasJS Chart Data as CSV
-
 This is a plugin for CanvasJS Charts that allows you to export and save CanvasJS Chart's data as CSV.
 
 ## CanvasJS
@@ -38,5 +37,7 @@ chart.exportAsCSV("filename");
 
 
 ##### Note: 
-- Plugin was last tested with **CanvasJS Chart v3.4.4GA**
+- Plugin was last tested with **CanvasJS Chart v3.7.2GA**
 - This plugin requires you to have CanvasJS License. Please visit **[CanvasJS](https://canvasjs.com/license/)** for more info.
+
+<a href="https://ko-fi.com/vishwas" target="_blank"> <img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="Ko-Fi" /></a>

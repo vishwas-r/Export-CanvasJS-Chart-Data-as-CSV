@@ -6,9 +6,6 @@
   "directories": {
     "example": "examples"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vishwas-r/Export-CanvasJS-Chart-Data-as-CSV.git"
@@ -16,7 +13,7 @@
   "keywords": [
     "canvasjs chart",
     "export chart data as csv",
-    "csv chart data",
+    "csv chart data"
   ],
   "author": "Vishwas",
   "license": "MIT",

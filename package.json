@@ -1,0 +1,27 @@
+{
+  "name": "export-canvasjs-chart-data-as-csv",
+  "version": "1.0.0",
+  "description": "A plugin to CanvasJS Charts that allows you to export and save chart data as CSV file.",
+  "main": "dist/canvasjsascsv.min.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishwas-r/Export-CanvasJS-Chart-Data-as-CSV.git"
+  },
+  "keywords": [
+    "canvasjs chart",
+    "export chart data as csv",
+    "csv chart data",
+  ],
+  "author": "Vishwas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vishwas-r/Export-CanvasJS-Chart-Data-as-CSV/issues"
+  },
+  "homepage": "https://github.com/vishwas-r/Export-CanvasJS-Chart-Data-as-CSV#readme"
+}

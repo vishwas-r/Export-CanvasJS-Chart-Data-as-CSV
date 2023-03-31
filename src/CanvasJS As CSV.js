@@ -4,6 +4,13 @@ if (CanvasJS) {
 	CanvasJS.Chart.prototype.exportAsCSV = function (fileName) {
 		CanvasJSDataAsCSV(this, fileName);
 	}
+
+	var chartRender = CanvasJS.Chart.prototype.render;
+      CanvasJS.Chart.prototype.render = function (options) {
+        var result = chartRender.apply(this, arguments);				
+        this.exportAsCSV();
+        return result ;
+	}
 }
 
 function CanvasJSDataAsCSV(chart, fileName) {
@@ -26,29 +33,6 @@ function CanvasJSDataAsCSV(chart, fileName) {
 		});
 
 		chart._toolBar.lastChild.appendChild(exportCSV);
-	} else {
-		var base64Img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEgSURBVEhL3dM/SgNBFMfxBS8gWkYb0dJSyBGCwdIzRPAKgrZKINdIkVJB0qqteIdYCYoHEPX74P1gMszuzG5SiD/4wM6/99jJpvq3GeIVPwUu0ToLpIrVad1EB3Pp3KRLA1PcRAdyCYtLURNtziUsHMqmeGOUxnNtPs2cZNp+mk2S0eIteu7O5y5wgFN8Yw8vePZnnZVktLiDJzxi1+cOfe4GHxhhgjHOoLOSTLgYbjZz7OPaxzOc4Nif4/3JaNHe4MHpDc7xiW284R1b2IS9ka61MWpg925NrPi9z9mfx65pgC+fO0Lfn21/Nqt8RUo8XordZ9cmSjyuTfHGKH+nQe6qptiA5QqpPcbWkin5PXJNaot3Tdhk7cUVKxwUr6pfwprgQh4A9MYAAAAASUVORK5CYII=";
-		var exportButton = document.createElement('button');
-
-		exportButton.style.cssText = "position:relative;display: inline-block;padding: 0px 4px;height: 27px;cursor: pointer;text-align: center;text-decoration: none;background-color:" + chart.toolbar.itemBackgroundColor + ";border: 1px solid " + chart.toolbar.borderColor + ";left:" + (chart.container.clientWidth - (chart.options.zoomEnabled ? 115 : 60)) + "px; top: 1px";
-
-		var img = document.createElement("IMG");
-		img.setAttribute("src", base64Img);
-		exportButton.appendChild(img);
-		exportButton.addEventListener("mouseover", function () {
-			this.style.cssText = this.style.cssText + "background-color: " + chart.toolbar.itemBackgroundColorOnHover;
-		});
-		exportButton.addEventListener("mouseout", function () {
-			this.style.cssText = this.style.cssText + "background-color: " + chart.toolbar.itemBackgroundColor;
-		});
-		exportButton.addEventListener("click", function () {
-			parseCSV({
-				filename: (fileName || "chart-data") + ".csv",
-				chart: chart
-			})
-		});
-
-		chart.container.appendChild(exportButton);
 	}
 }
 
@@ -139,17 +123,6 @@ function downloadFile(extData, filename) {
 	document.body.removeChild(link);
 }
 
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-	module.exports = CanvasJSDataAsCSV;
-} else {
-	if (typeof define === 'function' && define.amd) {
-		define([], function () {
-			return CanvasJSDataAsCSV;
-		});
-	} else {
-		window.CanvasJSDataAsCSV = CanvasJSDataAsCSV;
-	}
-}
 function cloneObject(obj) {
 	if (obj === null || typeof obj !== "object") {
 		return obj;

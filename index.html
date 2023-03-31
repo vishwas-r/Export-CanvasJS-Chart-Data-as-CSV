@@ -103,79 +103,9 @@ window.onload = function() {
 		}]
 	});
 	
-	var chart3 = new CanvasJS.Chart("chartContainer3", {
-		theme: "light2", // "light1", "dark1", "dark2"
-		animationEnabled: true,
-		title: {
-			text: "Export Chart Data as CSV"
-		},		
-		subtitles: [{
-			text: "When exportEnabled is set to false"
-		}],
-		data: [{
-			// Change type to "bar", "area", "spline", "pie",etc.
-			type: "column",
-			dataPoints: [{
-				label: "apple",
-				y: 10
-			}, {
-				label: "orange",
-				y: 15
-			}, {
-				label: "banana",
-				y: 25
-			}, {
-				label: "mango",
-				y: 30
-			}, {
-				label: "grape",
-				y: 28
-			}]
-		}]
-	});
-	
-	var chart4 = new CanvasJS.Chart("chartContainer4", {
-		theme: "light2", // "light1", "dark1", "dark2"
-		animationEnabled: true,
-		zoomEnabled: true,
-		title: {
-			text: "Export Chart Data as CSV"
-		},		
-		subtitles: [{
-			text: "When exportEnabled is set to false and zoomEnabled is set to true"
-		}],
-		data: [{
-			// Change type to "bar", "area", "spline", "pie",etc.
-			type: "column",
-			dataPoints: [{
-				label: "apple",
-				y: 10
-			}, {
-				label: "orange",
-				y: 15
-			}, {
-				label: "banana",
-				y: 25
-			}, {
-				label: "mango",
-				y: 30
-			}, {
-				label: "grape",
-				y: 28
-			}]
-		}]
-	});
 	
 	chart1.render();
 	chart2.render();
-	chart3.render();
-	chart4.render();
-	//CanvasJSDataAsCSV(chart [,"Filename"]); //Filename is optional - defaults to "chart-data"
-	//chart.exportAsCSV(["Filename"]);
-	CanvasJSDataAsCSV(chart1, "Chart1 Data"); //chart1.exportAsCSV("Chart1 Data");
-	CanvasJSDataAsCSV(chart2, "Chart2 Data"); //chart2.exportAsCSV("Chart2 Data");
-	CanvasJSDataAsCSV(chart3, "Chart3 Data"); //chart3.exportAsCSV("Chart3 Data");
-	CanvasJSDataAsCSV(chart4, "Chart3 Data"); //chart3.exportAsCSV("Chart3 Data");
 }
 </script>
 </head>
@@ -184,14 +114,31 @@ window.onload = function() {
 	<h1 id="exportcanvasjschartdataascsv">Export CanvasJS Chart Data as CSV</h1>
 	<p>This plugin allows you to export and save <a href="https://canvasjs.com/" target="_blank">CanvasJS</a> Chart's data as CSV. Check out <a href="https://github.com/vishwas-r/Export-CanvasJS-Chart-Data-as-CSV">Github Repository</a> for more info / examples.</p>
 	<h4 id="howtouse">How to Use?</h4>
+	<h5>Import the Script</h5>
+	<pre><code>/* HTML Script Tag */
+&lt;script src=&quot;https://canvasjs.com/assets/script/canvasjs.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/export-canvasjs-chart-data-as-csv/dist/canvasjsascsv.min.js&quot;&gt;&lt;/script&gt;
+
+/* or */
+import CanvasJS from './canvasjs.min';
+window.CanvasJS = CanvasJS;
+require('export-canvasjs-chart-data-as-csv');
+
+/* React */
+import CanvasJSReact from './canvasjs.react';
+window.CanvasJS = CanvasJSReact.CanvasJS;
+require('export-canvasjs-chart-data-as-csv');
+</code></pre>
+	<h5>Enable Export & Render the Chart</h5>
 	<ul>
-		<li>Create and Render CanvasJS Chart</li>
-		<li>Call CanvasJSDataAsCSV method with chart and filename as parameter</li>
+		<li>Enable Exporting by passing exportEnabled property as true.</li>
+		<li>Render the Chart.</li>
 	</ul>
 	<pre><code>var chart = new CanvasJS.Chart("chartContainer", {
     .
     .
     .
+    exportEnabled: true,
     //Chart Options
     .
     .
@@ -199,21 +146,14 @@ window.onload = function() {
 });
 chart.render();
 
-CanvasJSDataAsCSV(chart[, "filename"]);
-//or chart.exportAsCSV(["filename"]);
 </code></pre>
 	<h4>Live Example</h4>
-	<p>Example 1: When exportEnabled property is set to true</p>
+	<p>Example 1: Basic Example</p>
 	<div id="chartContainer1" style="height: 360px; width: 60%; border: 1px solid black;"></div>
 	<br/>
 	<p>Example 2: Exporting Multi-Series Chart as CSV</p>
 	<div id="chartContainer2" style="height: 360px; width: 60%; border: 1px solid black;"></div>
 	<br/>
-	<p>Example 3: When exportEnabled property is set to false</p>
-	<div id="chartContainer3" style="height: 360px; width: 60%; border: 1px solid black;"></div>
-	<br/>
-	<p>Example 2: When exportEnabled property is set to false and zoomEnabled is set to true</p>
-	<div id="chartContainer4" style="height: 360px; width: 60%; border: 1px solid black;"></div>
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
 	<script src="dist/canvasjsascsv.min.js"> </script>
 </body>

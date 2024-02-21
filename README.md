@@ -8,22 +8,17 @@ CanvasJS is built from ground up for high performance data visualization and can
 ## How to Use?
 
 ### Importing Script
-Import the CanvasJS & CanvasJS Export as CSV scritps
+Import the CanvasJS & CanvasJS Export as CSV scripts
 ```
 /* HTML Script Tag */
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/export-canvasjs-chart-data-as-csv/dist/canvasjsascsv.min.js"></script>
 
 /* or */
-import CanvasJS from './canvasjs.min';
-window.CanvasJS = CanvasJS;
-require('export-canvasjs-chart-data-as-csv');
-
-/* React */
-import CanvasJSReact from './canvasjs.react';
-window.CanvasJS = CanvasJSReact.CanvasJS;
+import CanvasJS from '@canvasjs/charts';
 require('export-canvasjs-chart-data-as-csv');
 ```
+*Note:* Load CanvasJS Export as CSV after loading CanvasJS script.
 
 ### Enable Exporting & Render the Chart
 - Enable Exporting by setting exportEnabled property to true.

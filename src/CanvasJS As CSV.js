@@ -1,10 +1,10 @@
 (function () {
     var CanvasJS = window.CanvasJS || CanvasJS ? window.CanvasJS : null;
 
-    if(!CanvasJS)
-        require("@canvasjs/charts")
-
-    if (CanvasJS && CanvasJS.Chart) {
+    if(CanvasJS == null)
+        CanvasJS = require("@canvasjs/charts")
+    
+    if (CanvasJS) {
         CanvasJS.Chart.prototype.exportAsCSV = function (fileName) {
             CanvasJSDataAsCSV(this, fileName);
         }

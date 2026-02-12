@@ -1,113 +1,113 @@
 <html>
 
 <head>
-<style>
-body {
-	width: 75%;
-	margin: auto;
-}
-</style>
-<script type="text/javascript">
-window.onload = function() {
-	var chart1 = new CanvasJS.Chart("chartContainer1", {
-		theme: "light2", // "light1", "dark1", "dark2"
-		animationEnabled: true,
-		exportEnabled: true,
-		title: {
-			text: "Export Chart Data as CSV"
-		},		
-		subtitles: [{
-			text: "When exportEnabled is set to true"
-		}],
-		data: [{
-			// Change type to "bar", "area", "spline", "pie",etc.
-			type: "column",
-			dataPoints: [{
-				label: "apple",
-				y: 10
-			}, {
-				label: "orange",
-				y: 15
-			}, {
-				label: "banana",
-				y: 25
-			}, {
-				label: "mango",
-				y: 30
-			}, {
-				label: "grape",
-				y: 28
-			}]
-		}]
-	});
-	
-	var chart2 = new CanvasJS.Chart("chartContainer2", {
-		theme: "light2", // "light1", "dark1", "dark2"
-		animationEnabled: true,
-		exportEnabled: true,
-		title: {
-			text: "Exporting Multi-Series Chart Data as CSV"
-		},
-		data: [{        
-		  type: "line",
-		  dataPoints: [
-			{ x: 10, y: 21 },
-			{ x: 20, y: 25 },
-			{ x: 30, y: 20 },
-			{ x: 40, y: 25 },
-			{ x: 50, y: 27 },
-			{ x: 60, y: 28 },
-			{ x: 70, y: 28 },
-			{ x: 80, y: 24 },
-			{ x: 90, y: 26 }      
-		  ]
-		}, {        
-		  type: "line",
-		  dataPoints: [
-			{ x: 10, y: 31 },
-			{ x: 20, y: 35 },
-			{ x: 30, y: 30 },
-			{ x: 40, y: 35 },
-			{ x: 50, y: 35 },
-			{ x: 60, y: 38 },
-			{ x: 70, y: 38 },
-			{ x: 80, y: 34 },
-			{ x: 90, y: 44 }      
-		  ]
-		}, {        
-		  type: "line",
-		  dataPoints: [
-			{ x: 10, y: 45 },
-			{ x: 20, y: 50 },
-			{ x: 30, y: 40 },
-			{ x: 40, y: 45 },
-			{ x: 50, y: 45 },
-			{ x: 60, y: 48 },
-			{ x: 70, y: 43 },
-			{ x: 80, y: 41 },
-			{ x: 90, y: 28 }      
-		  ]
-		}, {        
-		  type: "line",
-		  dataPoints: [
-			{ x: 10, y: 71 },
-			{ x: 20, y: 55 },
-			{ x: 30, y: 50 },
-			{ x: 40, y: 65 },
-			{ x: 50, y: 95 },
-			{ x: 60, y: 68 },
-			{ x: 70, y: 28 },
-			{ x: 80, y: 34 },
-			{ x: 90, y: 14 }      
-		  ]
-		}]
-	});
-	
-	
-	chart1.render();
-	chart2.render();
-}
-</script>
+	<style>
+		body {
+			width: 75%;
+			margin: auto;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var chart1 = new CanvasJS.Chart("chartContainer1", {
+				theme: "light2", // "light1", "dark1", "dark2"
+				animationEnabled: true,
+				exportEnabled: true,
+				title: {
+					text: "Export Chart Data as CSV"
+				},
+				subtitles: [{
+					text: "When exportEnabled is set to true"
+				}],
+				data: [{
+					// Change type to "bar", "area", "spline", "pie",etc.
+					type: "column",
+					dataPoints: [{
+						label: "apple",
+						y: 10
+					}, {
+						label: "orange",
+						y: 15
+					}, {
+						label: "banana",
+						y: 25
+					}, {
+						label: "mango",
+						y: 30
+					}, {
+						label: "grape",
+						y: 28
+					}]
+				}]
+			});
+
+			var chart2 = new CanvasJS.Chart("chartContainer2", {
+				theme: "light2", // "light1", "dark1", "dark2"
+				animationEnabled: true,
+				exportEnabled: true,
+				title: {
+					text: "Exporting Multi-Series Chart Data as CSV"
+				},
+				data: [{
+					type: "line",
+					dataPoints: [
+						{ x: 10, y: 21 },
+						{ x: 20, y: 25 },
+						{ x: 30, y: 20 },
+						{ x: 40, y: 25 },
+						{ x: 50, y: 27 },
+						{ x: 60, y: 28 },
+						{ x: 70, y: 28 },
+						{ x: 80, y: 24 },
+						{ x: 90, y: 26 }
+					]
+				}, {
+					type: "line",
+					dataPoints: [
+						{ x: 10, y: 31 },
+						{ x: 20, y: 35 },
+						{ x: 30, y: 30 },
+						{ x: 40, y: 35 },
+						{ x: 50, y: 35 },
+						{ x: 60, y: 38 },
+						{ x: 70, y: 38 },
+						{ x: 80, y: 34 },
+						{ x: 90, y: 44 }
+					]
+				}, {
+					type: "line",
+					dataPoints: [
+						{ x: 10, y: 45 },
+						{ x: 20, y: 50 },
+						{ x: 30, y: 40 },
+						{ x: 40, y: 45 },
+						{ x: 50, y: 45 },
+						{ x: 60, y: 48 },
+						{ x: 70, y: 43 },
+						{ x: 80, y: 41 },
+						{ x: 90, y: 28 }
+					]
+				}, {
+					type: "line",
+					dataPoints: [
+						{ x: 10, y: 71 },
+						{ x: 20, y: 55 },
+						{ x: 30, y: 50 },
+						{ x: 40, y: 65 },
+						{ x: 50, y: 95 },
+						{ x: 60, y: 68 },
+						{ x: 70, y: 28 },
+						{ x: 80, y: 34 },
+						{ x: 90, y: 14 }
+					]
+				}]
+			});
+
+
+			chart1.render();
+			chart2.render();
+		}
+	</script>
 </head>
 
 <body>
@@ -150,11 +150,11 @@ chart.render();
 	<h4>Live Example</h4>
 	<p>Example 1: Basic Example</p>
 	<div id="chartContainer1" style="height: 360px; width: 60%; border: 1px solid black;"></div>
-	<br/>
+	<br />
 	<p>Example 2: Exporting Multi-Series Chart as CSV</p>
 	<div id="chartContainer2" style="height: 360px; width: 60%; border: 1px solid black;"></div>
-	<br/>
-	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+	<br />
+	<script src="https://cdn.canvasjs.com/canvasjs.min.js"> </script>
 	<script src="dist/canvasjsascsv.min.js"> </script>
 </body>
 

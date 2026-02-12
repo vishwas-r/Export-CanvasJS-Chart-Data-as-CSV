@@ -1,45 +1,53 @@
 (function () {
     var CanvasJS = window.CanvasJS || CanvasJS ? window.CanvasJS : null;
 
-    if(CanvasJS == null)
+    if (CanvasJS == null)
         CanvasJS = require("@canvasjs/charts")
-    
+
     if (CanvasJS) {
         CanvasJS.Chart.prototype.exportAsCSV = function (fileName) {
             CanvasJSDataAsCSV(this, fileName);
         }
-    
+
         var chartRender = CanvasJS.Chart.prototype.render;
-          CanvasJS.Chart.prototype.render = function (options) {
-            var result = chartRender.apply(this, arguments);				
+        CanvasJS.Chart.prototype.render = function (options) {
+            var result = chartRender.apply(this, arguments);
             this.exportAsCSV();
-            return result ;
+            return result;
         }
     }
-    
+
     function CanvasJSDataAsCSV(chart, fileName) {
-        if (chart.exportEnabled) {
-            var exportCSV = document.createElement('div');
-            var text = document.createTextNode("Save as CSV");
-            exportCSV.setAttribute("style", "padding: 12px 8px; background-color: " + chart.toolbar.itemBackgroundColor + "; color: " + chart.toolbar.fontColor);
-            exportCSV.appendChild(text);
-            exportCSV.addEventListener("mouseover", function () {
-                exportCSV.setAttribute("style", "padding: 12px 8px; background-color: " + chart.toolbar.itemBackgroundColorOnHover + "; color: " + chart.toolbar.fontColorOnHover);
-            });
-            exportCSV.addEventListener("mouseout", function () {
-                exportCSV.setAttribute("style", "padding: 12px 8px; background-color: " + chart.toolbar.itemBackgroundColor + "; color: " + chart.toolbar.fontColor);
-            });
-            exportCSV.addEventListener("click", function () {
-                parseCSV({
-                    filename: (fileName || "chart-data") + ".csv",
-                    chart: chart
-                })
-            });
-    
-            chart._toolBar.lastChild.appendChild(exportCSV);
+        if (chart.exportEnabled && chart._dropdownMenu) {
+            var exportCSV = chart._dropdownMenu.getElementsByClassName("canvasjs-chart-csv-export")[0];
+
+            if (!exportCSV) {
+                exportCSV = document.createElement('div');
+                exportCSV.setAttribute("class", "canvasjs-chart-csv-export");
+                var text = document.createTextNode("Save as CSV");
+                exportCSV.setAttribute("style", "padding: 12px 8px; cursor: pointer; background-color: " + chart.toolbar.itemBackgroundColor + "; color: " + chart.toolbar.fontColor);
+                exportCSV.appendChild(text);
+                exportCSV.addEventListener("mouseover", function () {
+                    exportCSV.setAttribute("style", "padding: 12px 8px; cursor: pointer; background-color: " + chart.toolbar.itemBackgroundColorOnHover + "; color: " + chart.toolbar.fontColorOnHover);
+                });
+                exportCSV.addEventListener("mouseout", function () {
+                    exportCSV.setAttribute("style", "padding: 12px 8px; cursor: pointer; background-color: " + chart.toolbar.itemBackgroundColor + "; color: " + chart.toolbar.fontColor);
+                });
+                exportCSV.addEventListener("click", function () {
+                    parseCSV({
+                        filename: (fileName || "chart-data") + ".csv",
+                        chart: chart
+                    })
+                });
+
+                chart._dropdownMenu.appendChild(exportCSV);
+            }
+
+            if (exportCSV.parentNode === chart._dropdownMenu)
+                chart._dropdownMenu.appendChild(exportCSV);
         }
     }
-    
+
     function mergeData(data) {
         var mergedDps = [],
             result = [];
@@ -48,7 +56,7 @@
                 mergedDps.push(cloneObject(data[i].dataPoints[j]));
             }
         }
-    
+
         mergedDps.forEach(function (item) {
             var existing = result.filter(function (v, i) {
                 return v.x == item.x;
@@ -70,26 +78,26 @@
         }
         return result;
     }
-    
+
     function convertChartDataToCSV(args) {
         var result = '',
             ctr, keys, columnDelimiter, lineDelimiter, data;
-    
+
         data = args.data || null;
         if (data == null || !data.length) {
             return null;
         }
-    
+
         columnDelimiter = args.columnDelimiter || ',';
         lineDelimiter = args.lineDelimiter || '\n';
-    
+
         var mergedData = mergeData(data);
-    
+
         keys = Object.keys(mergedData[0]);
         result = '';
         result += keys.join(columnDelimiter);
         result += lineDelimiter;
-    
+
         mergedData.forEach(function (item) {
             ctr = 0;
             keys.forEach(function (key) {
@@ -101,14 +109,14 @@
         });
         return result;
     }
-    
+
     function parseCSV(args) {
         var csv = "";
-    
+
         csv += convertChartDataToCSV({
             data: args.chart.options.data
         });
-    
+
         if (csv == null) return;
         var filename = args.filename || 'chart-data.csv';
         if (!csv.match(/^data:text\/csv/i)) {
@@ -116,7 +124,7 @@
         }
         downloadFile(csv, filename);
     }
-    
+
     function downloadFile(extData, filename) {
         var data = encodeURI(extData);
         var link = document.createElement('a');
@@ -126,7 +134,7 @@
         link.click();
         document.body.removeChild(link);
     }
-    
+
     function cloneObject(obj) {
         if (obj === null || typeof obj !== "object") {
             return obj;
